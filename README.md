@@ -8,7 +8,12 @@ FRAMEWORKS, DESIGN PATTERNS & TECHNOLOGY USED:
 - UIKit and Auto Layout
 - Network Calls
 - MVC
+- MVVM
+- Dependency Injection
+- Refactoring application
+- Pagination 
 - Accessibility
 - Testing
 - 'DispatchQueue'
 - 'Result'
+- Protocols and Delegates 
