@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-struct NetworkController {
+struct NasaAssetDataProvider {
     
     /// Abstracted Struct to hold the URLSession.DataTask
-    static let service = APIService()
+    let service = APIService()
     
 #warning("Interviewer Note: I started with three functions. One to fetch with a search term, one to fetch an image, and one to fetch the next page. I took a moment and reflected on the duplication of code and set out to refactor to a single function solution. The image fetch I moved to a custome UIImage class. See ServiceRequestingIamgeView. The Search and the pagination functions I'll leave commented out below for you to review.")
     
@@ -72,7 +72,7 @@ struct NetworkController {
     //        }
     //    }
     
-    static func fetchNasaAssets(with endpoint: NasaEndpoint, completion: @escaping (Result<TopLevelAPIResponse, NetworkingError>) -> Void) {
+    func fetchNasaAssets(with endpoint: NasaEndpoint, completion: @escaping (Result<TopLevelAPIResponse, NetworkingError>) -> Void) {
         guard let url = endpoint.url else {return}
         let request = URLRequest(url: url)
         service.perform(request) { result in
