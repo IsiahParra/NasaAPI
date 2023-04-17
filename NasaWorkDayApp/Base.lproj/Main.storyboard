@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BJ9-lK-gai">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--NASA Images-->
+        <scene sceneID="MGJ-HC-ZQk">
+            <objects>
+                <tableViewController id="tLn-5z-prD" customClass="NasaSearchTableViewController" customModule="NasaWorkDayApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="pL5-87-fmT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search here" id="spt-7c-DxG">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NasaCell" id="m2W-Li-Bg2" customClass="NasaTableViewCell" customModule="NasaWorkDayApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="116.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m2W-Li-Bg2" id="aAh-0O-LmK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="116.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cMV-op-wXC" customClass="ServiceRequestingImageView" customModule="NasaWorkDayApp" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="8" width="200" height="100.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="AVe-rs-fQh"/>
+                                                <constraint firstAttribute="width" constant="200" id="Hyz-58-WnL"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPJ-Rf-di1">
+                                            <rect key="frame" x="216" y="11" width="190" height="97.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="bPJ-Rf-di1" secondAttribute="trailing" constant="8" id="7pT-uT-bvY"/>
+                                        <constraint firstItem="cMV-op-wXC" firstAttribute="leading" secondItem="aAh-0O-LmK" secondAttribute="leading" constant="8" id="DWp-WQ-lDu"/>
+                                        <constraint firstItem="bPJ-Rf-di1" firstAttribute="leading" secondItem="cMV-op-wXC" secondAttribute="trailing" constant="8" id="VGo-VC-WKe"/>
+                                        <constraint firstItem="bPJ-Rf-di1" firstAttribute="top" secondItem="aAh-0O-LmK" secondAttribute="topMargin" id="ZnB-Or-HAI"/>
+                                        <constraint firstAttribute="bottom" secondItem="bPJ-Rf-di1" secondAttribute="bottom" constant="8" id="cL1-iO-Enp"/>
+                                        <constraint firstAttribute="bottom" secondItem="cMV-op-wXC" secondAttribute="bottom" constant="8" id="oEi-ST-y8Q"/>
+                                        <constraint firstItem="cMV-op-wXC" firstAttribute="top" secondItem="aAh-0O-LmK" secondAttribute="top" constant="8" id="w6D-Fh-BcU"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nasaImageView" destination="cMV-op-wXC" id="QZM-DL-jeG"/>
+                                    <outlet property="nasaTitleLabel" destination="bPJ-Rf-di1" id="bbB-BM-GbS"/>
+                                    <segue destination="RQj-mW-43D" kind="presentation" identifier="toDetailVC" id="4GY-l0-eKp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tLn-5z-prD" id="OBt-6Z-SvB"/>
+                            <outlet property="delegate" destination="tLn-5z-prD" id="5EY-Y7-WK7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="NASA Images" id="sf6-ZD-kY7"/>
+                    <connections>
+                        <outlet property="nasaSearchBar" destination="spt-7c-DxG" id="rGT-oK-AHQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSY-IL-QOB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063.768115942029" y="66.964285714285708"/>
+        </scene>
+        <!--Nasa Detail View Controller-->
+        <scene sceneID="zZh-Us-d5H">
+            <objects>
+                <viewController id="RQj-mW-43D" customClass="NasaDetailViewController" customModule="NasaWorkDayApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eyC-of-rB9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xGz-LV-gdv">
+                                <rect key="frame" x="32" y="40" width="350" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="QJO-Iq-UfG"/>
+                                    <constraint firstAttribute="height" constant="450" id="ZEQ-JV-CtN"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4au-jd-25D">
+                                <rect key="frame" x="20" y="490" width="374" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Nasa Object Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksj-v2-WOe">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="96"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEe-rb-uch">
+                                        <rect key="frame" x="0.0" y="104" width="374" height="96"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="6lj-78-DyX"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QWV-I6-hFV"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QWV-I6-hFV" firstAttribute="trailing" secondItem="4au-jd-25D" secondAttribute="trailing" constant="20" id="4Df-Yn-tDu"/>
+                            <constraint firstItem="xGz-LV-gdv" firstAttribute="centerX" secondItem="QWV-I6-hFV" secondAttribute="centerX" id="Y0p-kH-bPL"/>
+                            <constraint firstItem="4au-jd-25D" firstAttribute="top" secondItem="xGz-LV-gdv" secondAttribute="bottom" id="dKs-Hd-2eu"/>
+                            <constraint firstItem="4au-jd-25D" firstAttribute="leading" secondItem="QWV-I6-hFV" secondAttribute="leading" constant="20" id="ftA-fM-xyk"/>
+                            <constraint firstItem="xGz-LV-gdv" firstAttribute="top" secondItem="QWV-I6-hFV" secondAttribute="top" constant="40" id="iEY-Aw-ilJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nasaDescriptionLabel" destination="ZEe-rb-uch" id="F4p-OS-vtL"/>
+                        <outlet property="searchedImageView" destination="xGz-LV-gdv" id="Fp6-KD-d2V"/>
+                        <outlet property="searchedTitleLabel" destination="Ksj-v2-WOe" id="lU1-hV-m6c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOr-NA-zQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="67"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="whi-hH-V9p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BJ9-lK-gai" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A2R-oc-Yfn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tLn-5z-prD" kind="relationship" relationship="rootViewController" id="kb8-P5-54b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vp5-9z-MFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153.62318840579712" y="66.964285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
